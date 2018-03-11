@@ -1,0 +1,20 @@
+{
+	"id": "nodebb-plugin-mipush",
+	"name": "MiPush Notifications",
+	"description": "Allows NodeBB to interface with the mipush service in order to provide push notifications to mipush applications and devices",
+	"url": "https://github.com/kidswong999/nodebb-plugin-mipush",
+	"library": "./library.js",
+	"hooks": [
+		{ "hook": "static:app.load", "method": "init" },
+		{ "hook": "filter:admin.header.build", "method": "addMenuItem" },
+		{ "hook": "action:notification.pushed", "method": "push" },
+		{ "hook": "filter:user.profileMenu", "method": "addProfileItem" }
+	],
+	"templates": "static/templates",
+	"less": [
+		"static/style.less"
+	],
+	"scripts": [
+		"lib/client-settings.js"
+	]
+}
